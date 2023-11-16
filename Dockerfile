@@ -46,9 +46,8 @@ RUN cd /tmp/build/nginx/${NGINX_VERSION} && \
     rm -rf /tmp/build
 
 # Forward logs to Docker
-# Disabled. There are directives in nginx.conf to redirect output to stdout or stderr
-# RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
-#     ln -sf /dev/stderr /var/log/nginx/error.log
+RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
